@@ -51,7 +51,7 @@ if (isset($_POST['btnSubmit'])) {
                     <div class="col">
                         <label for="exampleFormControlInput1" class="form-label">Provinsi <span
                                 style="color: red;">*</span></label>
-                        <select name="provinsi" class="form-select" aria-label="Default select example">
+                        <select class="form-select" name="provinsi" aria-label="Default select example">
                             <option selected disabled>Pilih provinsi</option>
                             <?php
                             require_once('./class/class.Provinsi.php');

@@ -32,7 +32,7 @@
                     foreach ($arrayResult as $dataWorkshop) {
                         echo '<div class="col">
                     <div class="card shadow-sm text-center" style="width: 18rem;">
-                        <p>Image</p>
+                        <img src="./upload/' . $dataWorkshop->gambar . '"/>
                         <div class="card-body">
                             <h5 class="card-title mb-3">'. $dataWorkshop->nama_workshop . '</h5>
                             <a href="index.php?p=workshop_detail&id_workshop='. $dataWorkshop->id_workshop. '"class="btn btn-primary" style="color: white;">Selengkapnya</a>

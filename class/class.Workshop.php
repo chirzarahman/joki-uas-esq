@@ -9,6 +9,7 @@
         private $tempat_pelaksanaan = '';
         private $nama_provinsi = '';
         private $benefit = '';
+        private $gambar = '';
         
         public $hasil = false;
         public $message = '';
@@ -25,7 +26,7 @@
         }
 
         public function AddWorkshop(){
-            $sql = "INSERT INTO workshop (id_workshop, kategori, nama_workshop, deskripsi, tanggal_pelaksanaan, waktu, tempat_pelaksanaan, provinsi, benefit) VALUES ('$this->id_workshop', '$this->kategori', '$this->nama_workshop', '$this->deskripsi', '$this->tanggal_pelaksanaan', '$this->waktu', '$this->tempat_pelaksanaan', '$this->provinsi', '$this->benefit')";
+            $sql = "INSERT INTO workshop (id_workshop, kategori, nama_workshop, deskripsi, tanggal_pelaksanaan, waktu, tempat_pelaksanaan, provinsi, benefit, gambar) VALUES ('$this->id_workshop', '$this->nama_kategori', '$this->nama_workshop', '$this->deskripsi', '$this->tanggal_pelaksanaan', '$this->waktu', '$this->tempat_pelaksanaan', '$this->nama_provinsi', '$this->benefit', '$this->gambar')";
 
             $this->hasil = mysqli_query($this->connection, $sql);
             if($this->hasil){
@@ -35,7 +36,7 @@
             }
         }
         public function UpdateWorkshop(){
-            $sql = "UPDATE workshop SET kategori = '$this->kategori', nama_workshop = '$this->nama_workshop', deskripsi = '$this->deskripsi', tanggal_pelaksanaan = '$this->tanggal_pelaksanaan', waktu = '$this->waktu', tempat_pelaksanaan = '$this->tempat_pelaksanaan', provinsi = '$this->provinsi' WHERE id_workshop = '$this->id_workshop'";
+            $sql = "UPDATE workshop SET kategori = '$this->nama_kategori', nama_workshop = '$this->nama_workshop', deskripsi = '$this->deskripsi', tanggal_pelaksanaan = '$this->tanggal_pelaksanaan', waktu = '$this->waktu', tempat_pelaksanaan = '$this->tempat_pelaksanaan', provinsi = '$this->nama_provinsi', benefit = '$this->benefit', gambar = '$this->gambar' WHERE id_workshop = '$this->id_workshop'";
 
             $this->hasil = mysqli_query($this->connection, $sql);
             if($this->hasil){
@@ -64,14 +65,15 @@
                 while ($data = mysqli_fetch_array($result)){
                     $objWorkshop = new Workshop();
                     $objWorkshop->id_workshop=$data['id_workshop'];
-                    $objWorkshop->nama_kategori=$data['nama_kategori'];
+                    $objWorkshop->nama_kategori=$data['kategori'];
                     $objWorkshop->nama_workshop=$data['nama_workshop'];
                     $objWorkshop->deskripsi=$data['deskripsi'];
                     $objWorkshop->tanggal_pelaksanaan=$data['tanggal_pelaksanaan'];
                     $objWorkshop->waktu=$data['waktu'];
                     $objWorkshop->tempat_pelaksanaan=$data['tempat_pelaksanaan'];
-                    $objWorkshop->nama_provinsi=$data['nama_provinsi'];
+                    $objWorkshop->nama_provinsi=$data['provinsi'];
                     $objWorkshop->benefit=$data['benefit'];
+                    $objWorkshop->gambar=$data['gambar'];
                     $arrResult[$count] = $objWorkshop;
                     $count++;
                 }
@@ -86,14 +88,15 @@
                 $this->hasil = true;
                 $data = mysqli_fetch_assoc($resultOne);
                 $this->id_workshop = $data['id_workshop'];
-                $this->kategori = $data['kategori'];
+                $this->nama_kategori = $data['kategori'];
                 $this->nama_workshop = $data['nama_workshop'];
                 $this->deskripsi = $data['deskripsi'];
                 $this->tanggal_pelaksanaan = $data['tanggal_pelaksanaan'];
                 $this->waktu = $data['waktu'];
                 $this->tempat_pelaksanaan = $data['tempat_pelaksanaan'];
-                $this->provinsi = $data['provinsi'];
+                $this->nama_provinsi = $data['provinsi'];
                 $this->benefit = $data['benefit'];
+                $this->gambar = $data['gambar'];
             }
         }
         

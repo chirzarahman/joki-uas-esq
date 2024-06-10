@@ -31,7 +31,7 @@ if (isset($_POST['btnSubmit'])) {
 <body>
     <div class="container my-5">
         <h3>Judul Workshop</h3>
-        <p>Image</p>
+        <img src="./upload/<?= $objWorkshop->gambar ?>" class="d-flex" style="margin: auto;" width="500" />
         <h3>Deskripsi</h3>
         <p><?= $objWorkshop->deskripsi ?></p>
         <h3>Benefit</h3>

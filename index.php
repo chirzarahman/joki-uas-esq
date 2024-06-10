@@ -35,9 +35,9 @@ session_start();
                         <li class="nav-item pe-4">
                             <a class="nav-link active fw-medium" aria-current="page" href="index.php">Beranda</a>
                         </li>
-                        <li class="nav-item pe-4">
+                        <!-- <li class="nav-item pe-4">
                             <a class="nav-link fw-medium" href="index.php?p=tentang_kami">Tentang Kami</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item pe-4">
                             <a class="nav-link fw-medium" href="index.php?p=workshop_page">Workshop</a>
                         </li>
@@ -124,8 +124,10 @@ session_start();
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-4">
-                        <h4>GrowUp</h4>
                         <ul style="list-style-type: none;">
+                            <li>
+                                <h4>GrowUp</h4>
+                            </li>
                             <li>About Us</li>
                             <li>Program</li>
                             <li>Partnership</li>
@@ -133,14 +135,25 @@ session_start();
                         </ul>
                     </div>
                     <div class="col-4">
-                        <h4>Contact Us</h4>
+                        <ul style="list-style-type: none;">
+                            <li>
+                                <h4>Contact Us</h4>
+                                <p>Monday - Sunday @ 08.00 - 17.00</p>
+                            </li>
+                            <li>+62 878-2423-0628</li>
+                            <li>growup@gmail.com</li>
+                            <li>@grow_up</li>
+                        </ul>
                     </div>
                     <div class="col-4">
                         <h4>Office</h4>
+                        <span class="fs-4">Menara 165</span>
+                        <p>Jl. TB Simatupang, RT.3/RW.3, Cilandak Tim., Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus
+                            Ibukota Jakarta 12560</p>
                     </div>
                 </div>
             </div>
-            <div class="text-center">
+            <div class="text-center mt-3">
                 <h3>Copyright&copy; 2024</h3>
                 <p class="fw-light">Kelompok KNKR</p>
             </div>
