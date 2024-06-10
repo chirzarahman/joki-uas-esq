@@ -48,7 +48,7 @@ require_once ('./class/class.Workshop.php');
                             echo '<tr>';
                             echo '<td>' . $no . '</td>';
                             echo '<td>' . $dataWorkshop->nama_workshop . '</td>';
-                            echo '<td>' . $dataWorkshop->kategori . '</td>';
+                            echo '<td>' . $dataWorkshop->nama_kategori . '</td>';
                             echo '<td>' . $dataWorkshop->tanggal_pelaksanaan . '</td>';
                             echo '<td>' . $dataWorkshop->waktu . '</td>';
                             echo '<td>' . $dataWorkshop->tempat_pelaksanaan . '</td>';

@@ -1,7 +1,7 @@
 <?php
     class Workshop extends Connection{
         private $id_workshop = '';
-        private $namakategori = '';
+        private $nama_kategori = '';
         private $nama_workshop = '';
         private $deskripsi = '';
         private $tanggal_pelaksanaan = '';
