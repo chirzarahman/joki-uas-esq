@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION['level'])) {
+    echo '<script>window.location = "index.php";</script>';
+}
+require_once ('./class/class.Workshop.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +36,6 @@
                 <th class="text-center">Aksi</th>
             </tr>
             <?php
-            require_once('./class/class.Workshop.php');
             $objWorkshop = new Workshop();
             $arrayResult = $objWorkshop->SelectAllWorkshop();
 
