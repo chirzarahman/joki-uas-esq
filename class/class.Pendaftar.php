@@ -81,4 +81,16 @@ class Pendaftar extends Connection
             $this->message = 'Pendaftar gagal diubah!';
         }
     }
+
+    public function AddPendaftar()
+    {
+        $sql = "INSERT INTO pendaftar (no_id, id_user, id_workshop, status) VALUES ('$this->no_id', '$this->id_user', '$this->id_workshop', '$this->status')";
+
+        $this->hasil = mysqli_query($this->connection, $sql);
+        if ($this->hasil) {
+            $this->message = 'Pendaftar berhasil ditambahkan!';
+        } else {
+            $this->message = 'Pendaftar gagal ditambahkan!';
+        }
+    }
 }

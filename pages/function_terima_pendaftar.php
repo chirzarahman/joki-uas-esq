@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['level']) == 'user') {
+if (!isset($_SESSION['level']) || $_SESSION['level'] == 'user') {
     echo '<script>window.location = "index.php";</script>';
 }
 require_once('./class/class.Pendaftar.php');

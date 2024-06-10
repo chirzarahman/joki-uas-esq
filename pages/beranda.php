@@ -45,7 +45,25 @@
     <div class="container text-center" style="width: 80%">
         <h1 class="fw-bold fs-2">Kategori Workshop</h1>
         <div class="row align-items-start py-5">
-            <div class="col">
+            <?php
+            require_once('./class/class.Kategori.php');
+            $objKategori = new Kategori();
+            $arrayResult = $objKategori->SelectAllKategori();
+
+            if (count($arrayResult) == 0) {
+                echo '<tr><td colspan="5">Tidak Ada Data!</td></tr>';
+            } else {
+                $no = 1;
+                foreach ($arrayResult as $dataKategori) {
+                    echo '<div class="col">
+                <a href="index.php?p=workshop_perkategori&id_kategori=' . $dataKategori->id_kategori . '" class="btn btn-outline-secondary fw-medium fs-5 rounded-4"
+                    style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: 3rem;">' . $dataKategori->nama_kategori . '</a>
+            </div>';
+                    $no++;
+                }
+            }
+            ?>
+            <!-- <div class="col">
                 <a href="index.php?p=workshop_perkategori" class="btn btn-outline-secondary fw-medium fs-5 rounded-4"
                     style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: 3rem;">Public Speaking</a>
             </div>
@@ -56,7 +74,7 @@
             <div class="col">
                 <a href="index.php?p=workshop_perkategori" class="btn btn-outline-warning fw-medium fs-5 rounded-4"
                     style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: 3rem;">Menulis</a>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="container py-5">

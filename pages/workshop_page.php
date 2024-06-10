@@ -20,93 +20,64 @@
         </div>
 
         <div>
-            <div>
-                <div class="d-flex justify-content-between">
-                    <h3 class="mb-3 fw-semibold">Public Speaking</h3>
-                    <a href="index.php?p=workshop_perkategori">Lihat Semuanya</a>
-                </div>
-                <div class="row gap-2">
-                    <div class="col">
-                        <div class="card shadow-sm text-center" style="width: 18rem;">
-                            <p>Image</p>
-                            <div class="card-body">
-                                <h5 class="card-title mb-3">Card title</h5>
-                                <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
-                            </div>
+            <div class="row gap-2">
+                <?php
+                require_once ('./class/class.Workshop.php');
+                $objWorkshop = new Workshop();
+                $arrayResult = $objWorkshop->SelectAllWorkshop();
+
+                if (count($arrayResult) == 0) {
+                    echo '<p>Tidak Ada Data!</p>';
+                } else {
+                    foreach ($arrayResult as $dataWorkshop) {
+                        echo '<div class="col">
+                    <div class="card shadow-sm text-center" style="width: 18rem;">
+                        <p>Image</p>
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">'. $dataWorkshop->nama_workshop . '</h5>
+                            <a href="index.php?p=workshop_detail&id_workshop='. $dataWorkshop->id_workshop. '"class="btn btn-primary" style="color: white;">Selengkapnya</a>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card shadow-sm text-center" style="width: 18rem;">
-                            <p>Image</p>
-                            <div class="card-body">
-                                <h5 class="card-title mb-3">Card title</h5>
-                                <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm text-center" style="width: 18rem;">
-                            <p>Image</p>
-                            <div class="card-body">
-                                <h5 class="card-title mb-3">Card title</h5>
-                                <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm text-center" style="width: 18rem;">
-                            <p>Image</p>
-                            <div class="card-body">
-                                <h5 class="card-title mb-3">Card title</h5>
-                                <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
-                            </div>
+                </div>';
+                    }
+                }
+                ?>
+                <!-- <div class="col">
+                    <div class="card shadow-sm text-center" style="width: 18rem;">
+                        <p>Image</p>
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Card title</h5>
+                            <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="mt-5">
-                <div class="d-flex justify-content-between">
-                    <h3 class="mb-3 fw-semibold">Kerajinan</h3>
-                    <a href="#">Lihat Semuanya</a>
-                </div>
-                <div class="row gap-2">
-                    <div class="col">
-                        <div class="card shadow-sm text-center" style="width: 18rem;">
-                            <p>Image</p>
-                            <div class="card-body">
-                                <h5 class="card-title mb-3">Card title</h5>
-                                <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm text-center" style="width: 18rem;">
-                            <p>Image</p>
-                            <div class="card-body">
-                                <h5 class="card-title mb-3">Card title</h5>
-                                <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm text-center" style="width: 18rem;">
-                            <p>Image</p>
-                            <div class="card-body">
-                                <h5 class="card-title mb-3">Card title</h5>
-                                <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm text-center" style="width: 18rem;">
-                            <p>Image</p>
-                            <div class="card-body">
-                                <h5 class="card-title mb-3">Card title</h5>
-                                <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
-                            </div>
+                <div class="col">
+                    <div class="card shadow-sm text-center" style="width: 18rem;">
+                        <p>Image</p>
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Card title</h5>
+                            <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="card shadow-sm text-center" style="width: 18rem;">
+                        <p>Image</p>
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Card title</h5>
+                            <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm text-center" style="width: 18rem;">
+                        <p>Image</p>
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Card title</h5>
+                            <a href="#" class="btn btn-primary" style="color: white;">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
     </div>

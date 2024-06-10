@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['level']) == 'user') {
+if (!isset($_SESSION['level']) || $_SESSION['level'] == 'user') {
     echo '<script>window.location = "index.php";</script>';
 }
 require_once('./class/class.Workshop.php');
@@ -13,10 +13,23 @@ if (isset($_POST['btnSubmit'])) {
     $objWorkshop->waktu = $_POST['waktu'];
     $objWorkshop->tempat_pelaksanaan = $_POST['tempat'];
     $objWorkshop->provinsi = $_POST['provinsi'];
+    
+// $tipe_file = $_FILES['fupload']['type'];
+// $lokasi_file = $_FILES['fupload']['tmp_name'];
+// $nama_file = $_FILES['fupload']['name'];
+// $ukuran_file = $_FILES['fupload']['size'];
+// $folder = './upload/';
+    
     if (isset($_GET['id_workshop'])) {
         $objWorkshop->id_workshop = $_GET['id_workshop'];
         $objWorkshop->UpdateWorkshop();
     } else {
+        // if($tipe_file != "image/jpg" AND $tipe_file != "image/jpeg" AND $tipe_file != "image/png"){
+        //     echo "<script>window.location = 'index.php?p=form_workshop'</script>";
+        // } else {
+        //     $isSuccessUpload = move_uploaded_file($lokasi_file, $folder.$nama_file);
+        //     if()
+        // }
         $objWorkshop->AddWorkshop();
     }
     echo "<script> alert('$objWorkshop->message'); </script>";
@@ -42,11 +55,11 @@ if (isset($_POST['btnSubmit'])) {
     <div class="container">
         <div class="card shadow rounded-3 my-5 bg-white border-0 p-5">
             <h1 class="fw-bold fs-1 text-center">Unggah Workshop</h1>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Nama Workshop <span
                             style="color: red;">*</span></label>
-                    <input type="text" name="nama_workshop" value="<?=$objWorkshop->nama_workshop?>"
+                    <input type="text" name="nama_workshop" value="<?= $objWorkshop->nama_workshop ?>"
                         class="form-control" id="exampleFormControlInput1" placeholder="">
                 </div>
                 <div class="mb-3">
@@ -74,37 +87,37 @@ if (isset($_POST['btnSubmit'])) {
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Gambar Flyer Workshop <span
                             style="color: red;">*</span></label>
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" type="file" name="fUpload" id="formFile">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Deskripsi <span
                             style="color: red;">*</span></label>
                     <textarea name="des_workshop" class="form-control" id="exampleFormControlTextarea1"
-                        rows="3"><?=$objWorkshop->deskripsi?></textarea>
+                        rows="3"><?= $objWorkshop->deskripsi ?></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea2" class="form-label">Benefit <span
                             style="color: red;">*</span></label>
                     <textarea name="benefit_workshop" class="form-control" id="exampleFormControlTextarea2"
-                        rows="3"><?=$objWorkshop->benefit?></textarea>
+                        rows="3"><?= $objWorkshop->benefit ?></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Tanggal Pelaksanaan <span
                             style="color: red;">*</span></label>
-                    <input type="date" name="tgl" value="<?=$objWorkshop->tanggal_pelaksanaan?>" class="form-control"
+                    <input type="date" name="tgl" value="<?= $objWorkshop->tanggal_pelaksanaan ?>" class="form-control"
                         id="exampleFormControlInput1" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Waktu Pelaksanaan <span
                             style="color: red;">*</span></label>
-                    <input type="text" name="waktu" value="<?=$objWorkshop->waktu?>" class="form-control"
+                    <input type="text" name="waktu" value="<?= $objWorkshop->waktu ?>" class="form-control"
                         id="exampleFormControlInput1" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Tempat Pelaksanaan <span
                             style="color: red;">*</span></label>
-                    <input type="text" name="tempat" value="<?=$objWorkshop->tempat_pelaksanaan?>" class="form-control"
-                        id="exampleFormControlInput1" placeholder="">
+                    <input type="text" name="tempat" value="<?= $objWorkshop->tempat_pelaksanaan ?>"
+                        class="form-control" id="exampleFormControlInput1" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Provinsi <span
