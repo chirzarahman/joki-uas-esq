@@ -29,7 +29,7 @@
         }
         public function AddUsers()
         {
-            $sql = "INSERT INTO users(id_user, username, email, password, dob, no_wa, jenjang_pendidikan, provinsi, institusi) VALUES ('$this->id_user', '$this->username', '$this->email', '$this->password', '$this->dob', '$this->no_wa', '$this->jenjang_pendidikan', '$this->provinsi', '$this->institusi')";
+            $sql = "INSERT INTO users (username, email, password, dob, no_wa, jenjang_pendidikan, provinsi, institusi) VALUES ('$this->username', '$this->email', '$this->password', '$this->dob', '$this->no_wa', '$this->jenjang_pendidikan', '$this->provinsi', '$this->institusi')";
 
             $this->hasil = mysqli_query($this->connection, $sql);
             if ($this->hasil)

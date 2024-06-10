@@ -84,7 +84,7 @@ class Pendaftar extends Connection
 
     public function AddPendaftar()
     {
-        $sql = "INSERT INTO pendaftar (no_id, id_user, id_workshop, status) VALUES ('$this->no_id', '$this->id_user', '$this->id_workshop', '$this->status')";
+        $sql = "INSERT INTO pendaftar (id_user, id_workshop, status) VALUES ('$this->id_user', '$this->id_workshop', '$this->status')";
 
         $this->hasil = mysqli_query($this->connection, $sql);
         if ($this->hasil) {
