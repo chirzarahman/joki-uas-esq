@@ -1,0 +1,6 @@
+:root{
+    --bs-body-font-family: 'Poppins', sans-serif;
+}
+.btn, a{
+    color: #000000;
+}
