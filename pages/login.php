@@ -1,5 +1,16 @@
 <?php
 require_once('./class/class.Users.php');
+if(isset($_SESSION['level'])) {
+    switch ($_SESSION['level']) {
+        case 'admin':
+            echo '<script>window.location = "index.php?p=dashboard_admin";</script>';
+            break;
+
+        case 'user':
+            echo '<script>window.location = "index.php";</script>';
+            break;
+    }
+}
 if (isset($_POST['btnLogin'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -29,7 +40,17 @@ if (isset($_POST['btnLogin'])) {
             // else if ($objUser->role == 'admin')
             //     echo '<script>window.location = "dashboardadmin.php";</script>';
         } else {
-            echo "<script>alert('Password tidak match');</script>";
+            $objUsers->hasil = false;
+            $checkadmin = $objUsers->CheckAdmin($email, $password);
+            if($objUsers->hasil) {
+                $_SESSION["id_user"] = $objUsers->id_user;
+                $_SESSION["username"] = $objUser->username;
+                $_SESSION["level"] = 'admin';
+                echo "<script>alert('Login sukses');</script>";
+                echo '<script>window.location = "index.php?p=dashboard_admin";</script>';
+            } else {
+                echo "<script>alert('Password tidak match');</script>";
+            }
         }
     } else {
         echo "<script>alert('Email tidak terdaftar');</script>";
@@ -55,7 +76,7 @@ if (isset($_POST['btnLogin'])) {
                     <form action="" method="post">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                            <input type="text" name="email" class="form-control" id="exampleFormControlInput1"
                                 placeholder="">
                         </div>
                         <div class="mb-3">

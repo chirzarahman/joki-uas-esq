@@ -54,5 +54,17 @@
                 $this->institusi = $data['institusi'];
             }
         }
+
+        public function CheckAdmin($username, $password)
+        {
+            $sql = "SELECT * FROM `admin` WHERE nama_admin = '$username' and `password` = '$password'";
+            $result = mysqli_query($this->connection, $sql);
+            if (mysqli_num_rows($result) == 1) {
+                $this->hasil = true;
+                $data = mysqli_fetch_assoc($result);
+                $this->id_user = $data['id_admin'];
+                $this->username = $data['nama_admin'];
+            }
+        }
     }
     ?>
