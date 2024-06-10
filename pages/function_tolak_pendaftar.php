@@ -34,7 +34,7 @@ $mail->SMTPOptions = array(
 $mail->WordWrap = 50;
 $mail->IsHTML(true);
 
-$mail->AddAddress('raisworked@gmail.com', 'Rais');
+$mail->AddAddress($_GET['email'], 'paijo');
 $mail->Subject = 'test';
 $mail->Body = 'test';
 $mail->AltBody = "This is the body in plain text for non-HTML mail clients";

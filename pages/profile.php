@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION['level'])) {
+    echo '<script>window.location = "index.php";</script>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +16,8 @@
 <body>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <a href="index.php?p=edit_profile" class="card my-5 bg-white border-1 pe-5"
+            <a href="index.php?p=edit_profile&id_user=<?= $_SESSION["id_user"] ?>"
+                class="card my-5 bg-white border-1 pe-5"
                 style="min-width: 52%; border: solid #D61C4E; text-decoration: none;">
                 <div class="d-flex align-items-center">
                     <img src="./assets/profile1.png" alt="Image 1" height="250">

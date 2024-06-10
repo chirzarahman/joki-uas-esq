@@ -14,22 +14,25 @@ if (isset($_POST['btnSubmit'])) {
     $objWorkshop->tempat_pelaksanaan = $_POST['tempat'];
     $objWorkshop->provinsi = $_POST['provinsi'];
     
-    // $tipe_file = $_FILES['fupload']['type'];
-    // $lokasi_file = $_FILES['fupload']['tmp_name'];
-    // $nama_file = $_FILES['fupload']['name'];
-    // $ukuran_file = $_FILES['fupload']['size'];
-    // $folder = './upload/';
+    $tipe_file = $_FILES['fupload']['type'];
+    $lokasi_file = $_FILES['fupload']['tmp_name'];
+    $nama_file = $_FILES['fupload']['name'];
+    $ukuran_file = $_FILES['fupload']['size'];
+    $folder = './upload/';
+    if ($tipe_file != "image/jpg" and $tipe_file != "image/jpeg" and $tipe_file != "image/png") {
+        echo "<script>window.location = 'index.php?p=form_workshop'</script>";
+    } else {
+        $isSuccessUpload = move_uploaded_file($lokasi_file, $folder . $nama_file);
+        if ($isSuccessUpload) {
+            echo "Nama File : $nama_file sukses diupload<br/>";
+            echo "Ukuran File : $ukuran_file bytes";
+        }
+    }
     
     if (isset($_GET['id_workshop'])) {
         $objWorkshop->id_workshop = $_GET['id_workshop'];
         $objWorkshop->UpdateWorkshop();
     } else {
-        // if($tipe_file != "image/jpg" AND $tipe_file != "image/jpeg" AND $tipe_file != "image/png"){
-        //     echo "<script>window.location = 'index.php?p=form_workshop'</script>";
-        // } else {
-        //     $isSuccessUpload = move_uploaded_file($lokasi_file, $folder.$nama_file);
-        //     if()
-        // }
         $objWorkshop->AddWorkshop();
     }
     echo "<script> alert('$objWorkshop->message'); </script>";

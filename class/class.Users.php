@@ -67,5 +67,36 @@
                 $this->nama_admin = $data['nama_admin'];
             }
         }
+
+        public function UpdateProfile()
+        {
+            $sql = "UPDATE users SET username = '$this->username', email = '$this->email', dob = '$this->dob', no_wa = '$this->no_wa', jenjang_pendidikan = '$this->jenjang_pendidikan', provinsi = '$this->provinsi', institusi = '$this->institusi' WHERE id_user = '$this->id_user'";
+
+            $this->hasil = mysqli_query($this->connection, $sql);
+            if ($this->hasil) {
+                $this->message = 'User berhasil diubah!';
+            } else {
+                $this->message = 'User gagal diubah!';
+            }
+        }
+
+        public function SelectOneProfile()
+        {
+            $sql = "SELECT * FROM users WHERE id_user = '$this->id_user'";
+            $resultOne = mysqli_query($this->connection, $sql);
+
+            if (mysqli_num_rows($resultOne) == 1) {
+                $this->hasil = true;
+                $data = mysqli_fetch_assoc($resultOne);
+                $this->id_user = $data['id_user'];
+                $this->username = $data['username'];
+                $this->email = $data['email'];
+                $this->dob = $data['dob'];
+                $this->no_wa = $data['no_wa'];
+                $this->jenjang_pendidikan = $data['jenjang_pendidikan'];
+                $this->provinsi = $data['provinsi'];
+                $this->institusi = $data['institusi'];
+            }
+        }
     }
     ?>
