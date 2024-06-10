@@ -1,9 +1,10 @@
 <?php
-if (!isset($_SESSION['level'])) {
+if (isset($_SESSION['level']) == 'user') {
     echo '<script>window.location = "index.php";</script>';
 }
 require_once ('./class/class.Workshop.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

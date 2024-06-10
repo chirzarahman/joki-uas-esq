@@ -41,20 +41,20 @@
                 <th></th>
             </tr>
             <?php
-            require_once('./class/class.Workshop.php');
-            $objWorkshop = new Workshop();
-            $arrayResult = $objWorkshop->SelectAllWorkshop();
+            require_once('./class/class.Pendaftar.php');
+            $objPendaftar = new Pendaftar();
+            $arrayResult = $objPendaftar->SelectAllPendaftar();
 
             if (count($arrayResult) == 0) {
                 echo '<tr><td colspan="5">Tidak Ada Data!</td></tr>';
             } else {
                 $no = 1;
-                foreach ($arrayResult as $dataWorkshop) {
+                foreach ($arrayResult as $dataPendaftar) {
                     echo '<tr>';
                     echo '<td>' . $no . '</td>';
-                    echo '<td>' . $dataWorkshop->nama_workshop . '</td>';
-                    echo '<td>' . $dataWorkshop->status . '</td>';
-                    echo '<td class="text-center"><a class="btn btn-warning me-2" href="index.php?p=workshop&id_workshop=' . $dataWorkshop->id_workshop . '">Lihat</a></td>';
+                    echo '<td>' . $dataPendaftar->nama_workshop . '</td>';
+                    echo '<td>' . $dataPendaftar->status . '</td>';
+                    echo '<td class="text-center"><a class="btn btn-warning me-2" href="index.php?p=workshop&no_id=' . $dataPendaftar->no_id . '">Lihat</a></td>';
                     echo '</tr>';
                     $no++;
                 }

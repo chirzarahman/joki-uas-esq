@@ -1,4 +1,7 @@
 <?php
+if (isset($_SESSION['level']) == 'user') {
+    echo '<script>window.location = "index.php";</script>';
+}
 require_once('./class/class.Workshop.php');
 $objWorkshop = new Workshop();
 if (isset($_POST['btnSubmit'])) {

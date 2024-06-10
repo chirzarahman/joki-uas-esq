@@ -24,7 +24,7 @@ if (isset($_POST['btnLogin'])) {
                 session_start();
             }
             $_SESSION["id_user"] = $objUsers->id_user;
-            $_SESSION["username"] = $objUser->username;
+            $_SESSION["username"] = $objUsers->username;
             $_SESSION["email"] = $objUsers->email;
             $_SESSION["password"] = $objUsers->password;
             $_SESSION["dob"] = $objUsers->dob;
@@ -32,6 +32,7 @@ if (isset($_POST['btnLogin'])) {
             $_SESSION["jenjang_pendidikan"] = $objUsers->jenjang_pendidikan;
             $_SESSION["provinsi"] = $objUsers->provinsi;
             $_SESSION["institusi"] = $objUsers->institusi;
+            $_SESSION["level"] = 'user';
             echo "<script>alert('Login sukses');</script>";
             echo '<script>window.location = "index.php";</script>';
             // if ($objUser->role == 'employee')
@@ -44,7 +45,7 @@ if (isset($_POST['btnLogin'])) {
             $checkadmin = $objUsers->CheckAdmin($email, $password);
             if($objUsers->hasil) {
                 $_SESSION["id_user"] = $objUsers->id_user;
-                $_SESSION["username"] = $objUser->username;
+                $_SESSION["nama_admin"] = $objUsers->nama_admin;
                 $_SESSION["level"] = 'admin';
                 echo "<script>alert('Login sukses');</script>";
                 echo '<script>window.location = "index.php?p=dashboard_admin";</script>';

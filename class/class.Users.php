@@ -3,6 +3,7 @@
     {
         private $id_user = '';
         private $username = '';
+        private $nama_admin = '';
         private $email = '';
         private $password = '';
         private $dob = '';
@@ -63,7 +64,7 @@
                 $this->hasil = true;
                 $data = mysqli_fetch_assoc($result);
                 $this->id_user = $data['id_admin'];
-                $this->username = $data['nama_admin'];
+                $this->nama_admin = $data['nama_admin'];
             }
         }
     }

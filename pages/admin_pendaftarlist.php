@@ -1,3 +1,9 @@
+<?php
+if (isset($_SESSION['level']) == 'user') {
+    echo '<script>window.location = "index.php";</script>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
