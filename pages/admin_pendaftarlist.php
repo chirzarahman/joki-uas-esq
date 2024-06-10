@@ -50,7 +50,13 @@ if (!isset($_SESSION['level']) || $_SESSION['level'] == 'user') {
                     echo '<td>' . $dataPendaftar->nama_workshop . '</td>';
                     echo '<td>' . $dataPendaftar->tanggal_pelaksanaan . '</td>';
                     echo '<td>' . $dataPendaftar->status . '</td>';
-                    echo '<td class="text-center"><a class="btn btn-warning me-2" href="index.php?p=admin_pendaftar_detail&no_id=' . $dataPendaftar->no_id . '">Lihat</a><a class="btn btn-success me-2" href="index.php?p=function_terima_pendaftar&no_id=' . $dataPendaftar->no_id . '" on click="return confirm(\'Apakah yakin ingin terima tiket ini?\')">Terima</a><a class="btn btn-danger" href="index.php?p=function_tolak_pendaftar&no_id=' . $dataPendaftar->no_id . '&email=' . $dataPendaftar->email . '" on click="return confirm(\'Apakah yakin ingin tolak tiket ini?\')">Tolak</a></td>';
+                    echo '<td class="text-center"><a class="btn btn-warning me-2" href="index.php?p=admin_pendaftar_detail&no_id=' . $dataPendaftar->no_id . '">Lihat</a>';
+                    if ($dataPendaftar->status == 'diterima') {
+                        echo '';
+                    } else {
+                        echo '<a class="btn btn-success me-2" href="index.php?p=function_terima_pendaftar&no_id=' . $dataPendaftar->no_id . '&email=' . $dataPendaftar->email . '" on click="return confirm(\'Apakah yakin ingin terima tiket ini?\')">Terima</a>';
+                    }
+                    // echo '<a class="btn btn-danger" href="index.php?p=function_tolak_pendaftar&no_id=' . $dataPendaftar->no_id . '&email=' . $dataPendaftar->email . '" on click="return confirm(\'Apakah yakin ingin tolak tiket ini?\')">Tolak</a></td>';
                     // if($dataPendaftar->status == 'pending'){
                     //     echo "masih pending";
                     // } else if($dataPendaftar->status == 'diterima'){

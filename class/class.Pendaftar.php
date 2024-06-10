@@ -8,6 +8,9 @@ class Pendaftar extends Connection
     private $email = '';
     private $nama_workshop = '';
     private $tanggal_pelaksanaan = '';
+    private $waktu = '';
+    private $tempat = '';
+    private $deskripsi = '';
     private $status = '';
 
     public $hasil = false;
@@ -28,7 +31,7 @@ class Pendaftar extends Connection
 
     public function SelectAllPendaftar()
     {
-        $sql = "SELECT pendaftar.*, users.username, users.email, workshop.nama_workshop, workshop.tanggal_pelaksanaan FROM pendaftar JOIN users ON pendaftar.id_user=users.id_user JOIN workshop ON pendaftar.id_workshop=workshop.id_workshop";
+        $sql = "SELECT pendaftar.*, users.username, users.email, workshop.* FROM pendaftar JOIN users ON pendaftar.id_user=users.id_user JOIN workshop ON pendaftar.id_workshop=workshop.id_workshop";
         $result = mysqli_query($this->connection, $sql);
         $arrResult = array();
         $count = 0;
@@ -43,6 +46,9 @@ class Pendaftar extends Connection
                 $objPendaftar->email = $data['email'];
                 $objPendaftar->nama_workshop = $data['nama_workshop'];
                 $objPendaftar->tanggal_pelaksanaan = $data['tanggal_pelaksanaan'];
+                $objPendaftar->waktu = $data['waktu'];
+                $objPendaftar->tempat = $data['tempat_pelaksanaan'];
+                $objPendaftar->deskripsi = $data['deskripsi'];
                 $objPendaftar->status = $data['status'];
                 $arrResult[$count] = $objPendaftar;
                 $count++;
@@ -53,7 +59,7 @@ class Pendaftar extends Connection
 
     public function SelectOnePendaftar()
     {
-        $sql = "SELECT pendaftar.*, users.username, users.email, workshop.nama_workshop, workshop.tanggal_pelaksanaan FROM pendaftar JOIN users ON pendaftar.id_user=users.id_user JOIN workshop ON pendaftar.id_workshop=workshop.id_workshop WHERE no_id = '$this->no_id'";
+        $sql = "SELECT pendaftar.*, users.username, users.email, workshop.* FROM pendaftar JOIN users ON pendaftar.id_user=users.id_user JOIN workshop ON pendaftar.id_workshop=workshop.id_workshop WHERE no_id = '$this->no_id'";
         $resultOne = mysqli_query($this->connection, $sql);
 
         if (mysqli_num_rows($resultOne) == 1) {
@@ -66,6 +72,9 @@ class Pendaftar extends Connection
             $this->email = $data['email'];
             $this->nama_workshop = $data['nama_workshop'];
             $this->tanggal_pelaksanaan = $data['tanggal_pelaksanaan'];
+            $this->waktu = $data['waktu'];
+            $this->tempat = $data['tempat_pelaksanaan'];
+            $this->deskripsi = $data['deskripsi'];
             $this->status = $data['status'];
         }
     }

@@ -120,9 +120,30 @@ session_start();
         ?>
     </main>
     <footer>
-        <div class="container-fluid text-center text-light py-5 mt-auto" style="background-color: #293462;">
-            <h3>Copyright&copy; 2024</h3>
-            <p class="fw-light">Kinanty Kusuma - Muhamad Yahya - Mahfudin</p>
+        <div class="container-fluid text-light py-5 mt-auto" style="background-color: #293462;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <h4>GrowUp</h4>
+                        <ul style="list-style-type: none;">
+                            <li>About Us</li>
+                            <li>Program</li>
+                            <li>Partnership</li>
+                            <li>Privacy Policy</li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <h4>Contact Us</h4>
+                    </div>
+                    <div class="col-4">
+                        <h4>Office</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <h3>Copyright&copy; 2024</h3>
+                <p class="fw-light">Kelompok KNKR</p>
+            </div>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
