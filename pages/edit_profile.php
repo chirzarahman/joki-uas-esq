@@ -62,7 +62,12 @@ if (isset($_POST['btnSubmit'])) {
                                 echo '<tr><td colspan="5">Tidak Ada Data!</td></tr>';
                             } else {
                                 foreach ($arrayResult as $dataProvinsi) {
-                                    echo '<option value=' . $dataProvinsi->id_provinsi . '>' . $dataProvinsi->nama_provinsi . '</option>';
+                                    if($dataProvinsi->id_provinsi == $objUsers->provinsi) {
+                                        echo '<option value=' . $dataProvinsi->id_provinsi . ' selected>' . $dataProvinsi->nama_provinsi . '</option>';
+                                        
+                                    } else {
+                                        echo '<option value=' . $dataProvinsi->id_provinsi . '>' . $dataProvinsi->nama_provinsi . '</option>';
+                                    }
                                     // if(!$objUsers->provinsi){
                                     // } else {
                                     //     echo '<option value=' . $dataProvinsi->id_provinsi . ' selected>' . $dataProvinsi->nama_provinsi . '</option>';
@@ -108,7 +113,11 @@ if (isset($_POST['btnSubmit'])) {
                                 echo '<tr><td colspan="5">Tidak Ada Data!</td></tr>';
                             } else {
                                 foreach ($arrayResult as $dataJenjangPendidikan) {
-                                    echo '<option value=' . $dataJenjangPendidikan->id_jp . '>' . $dataJenjangPendidikan->nama_jp . '</option>';
+                                    if($dataJenjangPendidikan->id_jp == $objUsers->jenjang_pendidikan) {
+                                        echo '<option value=' . $dataJenjangPendidikan->id_jp . ' selected>' . $dataJenjangPendidikan->nama_jp . '</option>';
+                                    } else {
+                                        echo '<option value=' . $dataJenjangPendidikan->id_jp . '>' . $dataJenjangPendidikan->nama_jp . '</option>';
+                                    }
                                 }
                             }
                             ?>
