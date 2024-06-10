@@ -14,11 +14,11 @@ if (isset($_POST['btnSubmit'])) {
     $objWorkshop->tempat_pelaksanaan = $_POST['tempat'];
     $objWorkshop->provinsi = $_POST['provinsi'];
     
-// $tipe_file = $_FILES['fupload']['type'];
-// $lokasi_file = $_FILES['fupload']['tmp_name'];
-// $nama_file = $_FILES['fupload']['name'];
-// $ukuran_file = $_FILES['fupload']['size'];
-// $folder = './upload/';
+    // $tipe_file = $_FILES['fupload']['type'];
+    // $lokasi_file = $_FILES['fupload']['tmp_name'];
+    // $nama_file = $_FILES['fupload']['name'];
+    // $ukuran_file = $_FILES['fupload']['size'];
+    // $folder = './upload/';
     
     if (isset($_GET['id_workshop'])) {
         $objWorkshop->id_workshop = $_GET['id_workshop'];
