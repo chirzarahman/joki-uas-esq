@@ -1,13 +1,13 @@
 <?php
     class Workshop extends Connection{
         private $id_workshop = '';
-        private $kategori = '';
+        private $namakategori = '';
         private $nama_workshop = '';
         private $deskripsi = '';
         private $tanggal_pelaksanaan = '';
         private $waktu = '';
         private $tempat_pelaksanaan = '';
-        private $provinsi = '';
+        private $nama_provinsi = '';
         private $benefit = '';
         
         public $hasil = false;
@@ -55,7 +55,7 @@
             }
         }
         public function SelectAllWorkshop(){
-            $sql = "SELECT * FROM workshop";
+            $sql = "SELECT workshop.*, kategori.*, provinsi.* FROM workshop JOIN kategori ON workshop.kategori=kategori.id_kategori JOIN provinsi ON workshop.provinsi=provinsi.id_provinsi";
             $result = mysqli_query($this->connection, $sql);
             $arrResult = Array();
             $count = 0;
@@ -64,13 +64,13 @@
                 while ($data = mysqli_fetch_array($result)){
                     $objWorkshop = new Workshop();
                     $objWorkshop->id_workshop=$data['id_workshop'];
-                    $objWorkshop->kategori=$data['kategori'];
+                    $objWorkshop->nama_kategori=$data['nama_kategori'];
                     $objWorkshop->nama_workshop=$data['nama_workshop'];
                     $objWorkshop->deskripsi=$data['deskripsi'];
                     $objWorkshop->tanggal_pelaksanaan=$data['tanggal_pelaksanaan'];
                     $objWorkshop->waktu=$data['waktu'];
                     $objWorkshop->tempat_pelaksanaan=$data['tempat_pelaksanaan'];
-                    $objWorkshop->provinsi=$data['provinsi'];
+                    $objWorkshop->nama_provinsi=$data['nama_provinsi'];
                     $objWorkshop->benefit=$data['benefit'];
                     $arrResult[$count] = $objWorkshop;
                     $count++;

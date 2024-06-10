@@ -13,13 +13,11 @@
     <div class="container my-5">
         <h4 class="title">
             <div class="text d-flex gap-4">
-                <a href="index.php?p=dashboard_admin">Workshop List</a>
+                <a href="index.php?p=dashboard_admin" style="text-decoration: none;">Workshop List</a>
                 <a href="index.php?p=admin_pendaftarlist">Pendaftar</a>
             </div>
         </h4>
-        <a class="btn btn-primary my-3" href="index.php?p=form_workshop" style="background-color: #293462;">Unggah
-            Workshop</a>
-        <table class="table table-bordered">
+        <table class="table table-bordered mt-5">
             <tr>
                 <th>No.</th>
                 <th>Nama Pendaftar</th>
@@ -46,7 +44,7 @@
                     echo '<td>' . $dataPendaftar->nama_workshop . '</td>';
                     echo '<td>' . $dataPendaftar->tanggal_pelaksanaan . '</td>';
                     echo '<td>' . $dataPendaftar->status . '</td>';
-                    echo '<td class="text-center"><a class="btn btn-warning me-2" href="index.php?p=form_workshop&no_id=' . $dataPendaftar->no_id . '">Edit</a><a class="btn btn-danger" href="index.php?p=deleteworkshop&no_id=' . $dataPendaftar->no_id . '" on click="return confirm(\'Apakah yakin ingin menghapus?\')">Delete</a></td>';
+                    echo '<td class="text-center"><a class="btn btn-warning me-2" href="index.php?p=form_workshop&no_id=' . $dataPendaftar->no_id . '">Lihat</a><a class="btn btn-success" href="index.php?p=deleteworkshop&no_id=' . $dataPendaftar->no_id . '" on click="return confirm(\'Apakah yakin ingin terima tiket ini?\')">Terima</a></td>';
                     echo '</tr>';
                     $no++;
                 }

@@ -14,10 +14,10 @@
         <h4 class="title">
             <div class="text d-flex gap-4">
                 <a href="index.php?p=dashboard_admin">Workshop List</a>
-                <a href="index.php?p=admin_pendaftarlist">Pendaftar</a>
+                <a href="index.php?p=admin_pendaftarlist" style="text-decoration: none;">Pendaftar</a>
             </div>
         </h4>
-        <a class="btn btn-primary my-3" href="index.php?p=form_workshop" style="background-color: #293462;">Unggah
+        <a class=" btn btn-primary my-3" href="index.php?p=form_workshop" style="background-color: #293462;">Unggah
             Workshop</a>
         <table class="table table-bordered">
             <tr>
@@ -30,28 +30,28 @@
                 <th class="text-center">Aksi</th>
             </tr>
             <?php
-            require_once('./class/class.Workshop.php');
-            $objWorkshop = new Workshop();
-            $arrayResult = $objWorkshop->SelectAllWorkshop();
+                    require_once('./class/class.Workshop.php');
+                    $objWorkshop = new Workshop();
+                    $arrayResult = $objWorkshop->SelectAllWorkshop();
 
-            if (count($arrayResult) == 0) {
-                echo '<tr><td colspan="7">Tidak Ada Data!</td></tr>';
-            } else {
-                $no = 1;
-                foreach ($arrayResult as $dataWorkshop) {
-                    echo '<tr>';
-                    echo '<td>' . $no . '</td>';
-                    echo '<td>' . $dataWorkshop->nama_workshop . '</td>';
-                    echo '<td>' . $dataWorkshop->kategori . '</td>';
-                    echo '<td>' . $dataWorkshop->tanggal_pelaksanaan . '</td>';
-                    echo '<td>' . $dataWorkshop->waktu . '</td>';
-                    echo '<td>' . $dataWorkshop->tempat_pelaksanaan . '</td>';
-                    echo '<td class="text-center"><a class="btn btn-warning me-2" href="index.php?p=form_workshop&id_workshop=' . $dataWorkshop->id_workshop . '">Edit</a><a class="btn btn-danger" href="index.php?p=deleteworkshop&id_workshop=' . $dataWorkshop->id_workshop . '" on click="return confirm(\'Apakah yakin ingin menghapus?\')">Delete</a></td>';
-                    echo '</tr>';
-                    $no++;
-                }
-            }
-            ?>
+                    if (count($arrayResult) == 0) {
+                        echo '<tr><td colspan="7">Tidak Ada Data!</td></tr>';
+                    } else {
+                        $no = 1;
+                        foreach ($arrayResult as $dataWorkshop) {
+                            echo '<tr>';
+                            echo '<td>' . $no . '</td>';
+                            echo '<td>' . $dataWorkshop->nama_workshop . '</td>';
+                            echo '<td>' . $dataWorkshop->kategori . '</td>';
+                            echo '<td>' . $dataWorkshop->tanggal_pelaksanaan . '</td>';
+                            echo '<td>' . $dataWorkshop->waktu . '</td>';
+                            echo '<td>' . $dataWorkshop->tempat_pelaksanaan . '</td>';
+                            echo '<td class="text-center"><a class="btn btn-warning me-2" href="index.php?p=form_workshop&id_workshop=' . $dataWorkshop->id_workshop . '">Edit</a><a class="btn btn-danger" href="index.php?p=deleteworkshop&id_workshop=' . $dataWorkshop->id_workshop . '" on click="return confirm(\'Apakah yakin ingin menghapus?\')">Delete</a></td>';
+                            echo '</tr>';
+                            $no++;
+                        }
+                    }
+                    ?>
         </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
