@@ -96,5 +96,31 @@
                 $this->benefit = $data['benefit'];
             }
         }
+        
+        public function SelectWorkshopByKategori($id_kategori){
+            $wheres = $id_kategori == '' ? '' : "where workshop.kategori = '$id_kategori'";
+            $sql = "SELECT workshop.*, kategori.*, provinsi.* FROM workshop JOIN kategori ON workshop.kategori=kategori.id_kategori JOIN provinsi ON workshop.provinsi=provinsi.id_provinsi $wheres";
+            $result = mysqli_query($this->connection, $sql);
+            $arrResult = Array();
+            $count = 0;
+
+            if(mysqli_num_rows($result) > 0){
+                while ($data = mysqli_fetch_array($result)){
+                    $objWorkshop = new Workshop();
+                    $objWorkshop->id_workshop=$data['id_workshop'];
+                    $objWorkshop->nama_kategori=$data['nama_kategori'];
+                    $objWorkshop->nama_workshop=$data['nama_workshop'];
+                    $objWorkshop->deskripsi=$data['deskripsi'];
+                    $objWorkshop->tanggal_pelaksanaan=$data['tanggal_pelaksanaan'];
+                    $objWorkshop->waktu=$data['waktu'];
+                    $objWorkshop->tempat_pelaksanaan=$data['tempat_pelaksanaan'];
+                    $objWorkshop->nama_provinsi=$data['nama_provinsi'];
+                    $objWorkshop->benefit=$data['benefit'];
+                    $arrResult[$count] = $objWorkshop;
+                    $count++;
+                }
+            }
+            return $arrResult;
+        }
     }
 ?>
