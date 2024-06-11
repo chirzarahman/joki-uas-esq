@@ -81,7 +81,11 @@ if (isset($_POST['btnSubmit'])) {
                         } else {
                             $no = 1;
                             foreach ($arrayResult as $dataKategori) {
-                                echo '<option value=' . $dataKategori->id_kategori . '>' . $dataKategori->nama_kategori . '</option>';
+                                if($dataKategori->id_kategori == $objWorkshop->nama_kategori) {
+                                    echo '<option value=' . $dataKategori->id_kategori . ' selected>' . $dataKategori->nama_kategori . '</option>';
+                                } else {
+                                    echo '<option value=' . $dataKategori->id_kategori . '>' . $dataKategori->nama_kategori . '</option>';
+                                }
                                 $no++;
                             }
                         }
@@ -139,7 +143,11 @@ if (isset($_POST['btnSubmit'])) {
                         } else {
                             $no = 1;
                             foreach ($arrayResult as $dataProvinsi) {
-                                echo '<option value=' . $dataProvinsi->id_provinsi . '>' . $dataProvinsi->nama_provinsi . '</option>';
+                                if($dataProvinsi->id_provinsi == $objWorkshop->nama_provinsi) {
+                                    echo '<option value=' . $dataProvinsi->id_provinsi . ' selected>' . $dataProvinsi->nama_provinsi . '</option>';
+                                } else {
+                                    echo '<option value=' . $dataProvinsi->id_provinsi . '>' . $dataProvinsi->nama_provinsi . '</option>';
+                                }
                                 $no++;
                             }
                         }
